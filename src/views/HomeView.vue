@@ -26,5 +26,6 @@ export default {
   components: {
     HelloWorld
   }
+  //PROP
 }
 </script>
