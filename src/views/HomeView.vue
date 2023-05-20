@@ -1,7 +1,19 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2> 댄스첼린지 </h2>
+    <div id="dance_challenge">
+        
+    </div>
+    <h2> 공익성 첼린지 </h2>
+    <div id="public_interest_challenge">
+      
+    </div>
+    <h2> 유희성 첼린지 </h2>
+    <div id="amusement_challenge">
+      
+    </div>
   </div>
 </template>
 
@@ -14,5 +26,6 @@ export default {
   components: {
     HelloWorld
   }
+  //PROP
 }
 </script>
