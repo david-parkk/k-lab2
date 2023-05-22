@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    
     <h2> 댄스첼린지 </h2>
     <div id="dance_challenge">
         
@@ -18,14 +18,16 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
+// @ is an alias to /src
+export default{
+  data(){
+    return{
+      
+    }
+  },
+  mounted(){
+
   }
-  //PROP
 }
 </script>
