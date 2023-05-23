@@ -1,6 +1,6 @@
 
 <template>
-    <div  v-if="!this.is_loggin" id="signin_div">
+    <div  v-if="!this.is_loggin&&!is_signup" id="signin_div">
       <h2>CHALLIFY</h2>
       <form @submit.prevent="submitForm">
         <div id="username">
@@ -16,14 +16,14 @@
             <button type="submit" @click="post_signin">Login</button>
         </div>
         <div id="Signup">
-            <button type="submit" >Signup</button>
+            <button type="submit" @click="is_signup=!is_signup">Signup</button>
         </div>
         <div>
             {{ show_login }}
         </div>
       </form>
     </div>
-    <div id="signup_div">
+    <div v-if="this.is_signup" id="signup_div">
         <h2>Create Account</h2> 
         <div id="username_up">
             <input type="text" v-model="nickname" placeholder="Username" />
@@ -37,24 +37,25 @@
         <div id="signup_button">
             <button @click="post_signup">signup!!</button>
         </div>
+        <button  @click="is_signup=!is_signup">X</button>
     </div>
-    <div id="profile_div">
+    <div v-if="this.is_loggin" id="profile_div">
         <h3>ID</h3>
         <div>
             {{ this.nickname }}
         </div>
         <h3>Date of Birth</h3>
         <div>
-            {{ this.password }}
+            {{ this.age }}
         </div>
         <div id="logout_button">
-            <button>로그아웃</button>
+            <button @click="post_logout" >로그아웃</button>
         </div>
     </div>
   </template>
   
   <script>
-  import {login_user,register_user,check_user}from '../api/login.js';
+  import {login_user,register_user,check_user,logout}from '../api/login.js';
   import Store from '../api/store.js';
   export default {
     data() {
@@ -63,18 +64,16 @@
             password: "",
             age:" ",
             is_loggin:false,
+            is_signup:false,
         };
     },
     name: 'ProfileView',
     mounted(){
-        console.log("mount!");
         Store.commit('checktoken')
         this.is_loggin=Store.getters.get_login;
-        console.log("login: ",this.is_loggin);
-        if(this.is_loggin)
-            console.log("check:",check_user(Store.getters.get_token));
-       
-       
+        this.nickname=Store.getters.get_nickname;
+        this.age=Store.getters.get_age;
+        check_user(Store.getters.get_token)
     },
     methods: {
         post_signin() {
@@ -83,10 +82,8 @@
                 password: this.password,
               
             };
-            console.log(credentials.nickname);
-            console.log(credentials.password);
             login_user(credentials);
-            
+            this.is_loggin  =!this.is_loggin;
         },
         post_signup(){
             const credentials = {
@@ -94,8 +91,18 @@
                 password: this.password,
                 age:this.age
             };
+            this.is_signup=!this.is_signup;
+            this.nickname="";
+            this.is_loggin="";
+            this.age="";
             register_user(credentials); 
+        },
+        post_logout(){
+            logout();
+            this.is_loggin=!this.is_loggin;
+            return 0;
         }
+
     },
     computed:{
         show_login(){
@@ -103,7 +110,8 @@
                 return 0;
             else
                 return 1;
-        }
+        },
+       
     }
   }
   </script>

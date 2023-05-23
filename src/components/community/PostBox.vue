@@ -18,6 +18,7 @@
   
 <script>
 import {view_catogary }from "../../api/viewapi"
+
   export default {
     name: 'PostBox',
     data() {
@@ -34,7 +35,10 @@ import {view_catogary }from "../../api/viewapi"
         } catch (error) {
             console.log(error);
         }
+       
+
     },
+
     methods:{
         
     }

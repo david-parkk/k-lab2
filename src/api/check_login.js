@@ -1,29 +1,25 @@
-import axios from 'axios';
+const axios = require('axios');
+const data = '{\r\n    \r\n}';
 
+function check_login(){
+  const config = {
+  method: 'get',
+  maxBodyLength: Infinity,
+ 
+  headers: { 
+    'Content-Type': 'text/plain', 
+   
+  },
+  data : data
+};
 
-async function view_catogary(token) {
-    const instance = axios.create({
-        
-        //baseURL: 'http://localhost:3000/api',
-       
-    });
-    console.log("token: ",token.access_token);
-    try {
-        const res = await axios.get('/check/', {
-            headers: {
-              'Authorization': 'API Key ' + token.access_token,
-            'tokenkey': token.access_token
-            },
-            baseURL: instance.defaults.baseURL
-          });
-    
-     // const res = await axios.get('/check/', { baseURL: instance.defaults.baseURL });
-      console.log("view_catogary", res.token);
-      return res.data;
-    } catch (error) {
-        console.log("에러발생")
-      console.log(error);
-      throw error;
-    }
+axios.request(config)
+.then((response) => {
+  console.log(JSON.stringify(response.data));
+})
+.catch((error) => {
+  console.log("에러남");
+  console.log(error);
+});
 }
-export {view_catogary}
+export {check_login}
