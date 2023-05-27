@@ -1,10 +1,7 @@
 import axios from 'axios';
 import store from './store.js';
+import instance from "./axiosapi"
 
-const instance = axios.create({
-  
-  //baseURL: 'http://localhost:3000/api',
-});
 function login_user(userData){
   console.log("요청보냄");
   axios.post('/login/', userData, { baseURL: instance.defaults.baseURL})

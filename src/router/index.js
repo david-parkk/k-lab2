@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ProfileView from '../views/ProfileView.vue'
 import CommuView from '../views/CommuView.vue'
+import CategoryView from '../views/CategoryView.vue'
+import ChallengeView from '../views/ChallengeView.vue'
 const routes = [
   {
     path: '/',
@@ -28,6 +30,16 @@ const routes = [
     name: 'community',
     component: CommuView
   },
+  {
+    path: '/category',
+    name: 'category',
+    component: CategoryView
+  },
+  {
+    path: '/challenge',
+    name: 'challenge',
+    component: ChallengeView
+  }
  
 ]
 
