@@ -3,8 +3,7 @@
     <h2>글쓰기</h2>
     <div><input  type="text" v-model="title"></div>
     <textarea v-model="content" ></textarea>
-    <button @click="post_page">계시</button>
-    <button> 나가기</button>
+    <button @click="post_page">게시</button>
     <div>{{ title }}</div>
     <div>{{ content }}</div>
     <div>{{ userid }}</div>
@@ -46,6 +45,7 @@ import Store from '../../api/store.js';
           userid: this.userid
         }
         post_content(post_data);
+        location.replace('../community');
       }
     }
   }

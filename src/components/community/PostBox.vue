@@ -3,12 +3,23 @@
     <ul id="v-for-object" class="demo">
       <li v-for="value in postList" :key="value">
         <div id="posts">
-            <router-link to="/community/post">
-                <div>{{ value.title }}</div>
-                <div>{{ value.content }}</div>
-                <div>{{ value.comment }}</div>
-                <div>{{ value.update_date}}</div>
+          <router-link :to="{
+            name: 'PostView',
+            params: { id: value.board_id },
+            query: {
+              title: value.title,
+              content: value.content,
+              comment: value.comment,
+              update_date: value.update_date
+            }
+          }">
+                <div class="p">{{ value.board_id }}</div>
+                <div class="p">{{ value.title }}</div>
+                <div class="p">{{ value.content }}</div>
+                <div class="p">{{ value.comment }}</div>
+                <div class="p">{{ value.update_date}}</div>
             </router-link>
+
           <hr>
         </div>
       </li>
@@ -18,6 +29,7 @@
   
 <script>
 import {view_catogary }from "../../api/viewapi"
+//import postId from "../views/Postview"
 
   export default {
     name: 'PostBox',
@@ -53,4 +65,12 @@ import {view_catogary }from "../../api/viewapi"
   #post_info p,img{
     display: inline-block;
   }
-  </style>
+
+.p{
+  text-align: left;
+  background-color: aquamarine;
+}
+li{
+  list-style: none;
+}
+</style>
