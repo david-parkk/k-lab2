@@ -20,6 +20,7 @@
 
 <script>
 import {view_challenge} from '../api/category.js'
+import {check} from '../api/check_login'
 export default {
   data(){
     return{
@@ -31,7 +32,11 @@ export default {
     const key=this.$route.query.key;
     this.name=key;
     console.log(key);
+    
     try{
+      check().then((array)=>{
+        console.log(array);
+      }),
       view_challenge().then((array)=>{
           
           console.log(array);
