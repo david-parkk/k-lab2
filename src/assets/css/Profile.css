@@ -1,0 +1,101 @@
+#CHALLIFY{
+    font-family: ExtraBold italic;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    font-size: 40px;
+    margin: 40px 0 0 0 ;
+}
+#CHALLIFY_Description{
+    text-align: center;
+    font-size: 15px;
+    margin: 0 0 70px 0;
+}
+#profile_page{
+    align-items: center;
+    margin: 0px auto 0px auto;
+}
+.profile_class{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    margin: 10px 0 0 80px; 
+}
+.profile_class2{
+    font-size: 16px;
+    font-weight: bold;
+    text-align:center;
+    background-color: #519D9E;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin: 30px 50px;
+    height: 40px;
+    
+}
+#password_text{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    margin: 10px 0 0 80px; 
+}
+input{
+    margin:5px;
+    border: none;
+    border-bottom: 1px solid;
+    margin: 15px 0 0 80px; 
+    width: 220px;
+}
+#login{
+    margin: 0 0 0 70px;
+}
+#Signup{
+    margin: 0 0 0 70px;
+}
+button{
+    background-color: #519D9E;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 250px;
+    height: 40px;
+    margin: 15px 0;
+}
+#profile_div1{
+    padding: 150px 0 0 0;
+    background-image: url(../img/profile_rectangle1.png);
+    height: 500px;
+}
+#profile_div2{
+    height: 450px;
+    width: 395px;
+    background-image: url(../img/profile_rectangle2.png);
+    padding: 170px 0 0 0;
+    
+}
+#logout_button{
+    background-image: url(../img/logout.png);
+    height: 51px;
+    width:128px;
+    margin: 0 auto;
+}
+#Create_Account{
+    display:inline-block;
+    font-family: ExtraBold italic;
+    font-weight: bold;
+    
+    text-align: center;
+    font-size: 30px;
+    margin: 40px 0 0 0 ;
+}
+#signup_button{
+    margin: 0 0 0 70px;
+}
+#back{
+    background-image: url(../img/back.png);
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 50px;
+    margin-right: 10px;
+}
